@@ -1,0 +1,11 @@
+{
+  "name": "todoenhanced",
+  "version": "1.0.0",
+  "description": "a todolist web app with login and multiple lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Schmitt",
+  "license": "MIT"
+}
