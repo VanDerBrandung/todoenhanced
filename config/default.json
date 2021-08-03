@@ -1,0 +1,5 @@
+{
+  "mongoURI": "mongodb://127.0.0.1:27017/dodoenhanced",
+  "jwtToken": "supersecrettoken",
+  "serverPort": "https://localhost:5000"
+}
