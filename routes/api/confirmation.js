@@ -7,7 +7,7 @@ const User = require('../../models/User');
 
 // @route   GET api/confirmation
 // @desc    Confirm user email
-// @access  Public
+// @access  Private with token
 router.get('/:token', async (req, res) => {
   try {
     const {
