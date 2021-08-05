@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-
+const nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
+const sendConfirmation = require('../../middleware/mail');
 
 // @route   POST api/users
 // @desc    Register user
@@ -53,12 +54,17 @@ router.post(
 
       await user.save();
 
-      // Return jsonwebtoken
+      // Set payload
       const payload = {
         user: {
           id: user.id,
         },
       };
+
+      // Send confirmation mail
+      sendConfirmation(payload, user);
+
+      // Return jsonwebtoken
 
       jwt.sign(
         payload,

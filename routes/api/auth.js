@@ -55,6 +55,12 @@ router.post(
           .json({ errors: [{ msg: 'Ungültige Anmeldeinformationen' }] });
       }
 
+      if (!user.confirmed) {
+        return res.status(400).json({
+          errors: [{ msg: 'Email Adresse wurde noch nicht bestätigt' }],
+        });
+      }
+
       const payload = {
         user: {
           id: user.id,
